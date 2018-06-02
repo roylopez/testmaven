@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>co.test.maven</groupId>
+	<artifactId>maventest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<profiles>
+
+		<profile>
+			<id>desarrollo</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+						<excludes>
+							<exclude>produccion.properties</exclude>
+						</excludes>
+					</resource>
+				</resources>
+			</build>
+			<properties>
+				<page.name>Página de desarrollo</page.name>
+				<page.version>0.0</page.version>
+			</properties>
+		</profile>
+
+
+		<profile>
+			<id>produccion</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+						<excludes>
+							<exclude>desarrollo.properties</exclude>
+						</excludes>
+					</resource>
+				</resources>
+			</build>
+			<properties>
+				<page.name>Página de produccion</page.name>
+				<page.version>0.0</page.version>
+			</properties>
+		</profile>
+
+	</profiles>
+	
+	
+	<!-- mvn clean install -Dpage.version=0 -Pproduccion  -->
+	
+	
+	
+
+</project>
