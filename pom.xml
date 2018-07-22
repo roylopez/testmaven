@@ -45,7 +45,7 @@
 			</build>
 			<properties>
 				<page.name>Página de produccion</page.name>
-				<page.version>0.0</page.version>
+				<page.version>0.1</page.version>
 			</properties>
 		</profile>
 
